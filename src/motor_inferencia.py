@@ -135,6 +135,49 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R07 — Engenharia de Dados: processamento e transformação
+    @Rule(
+        RespostaUsuario(pergunta="Q06", alternativa="B"),
+        RespostaUsuario(pergunta="Q02", alternativa="D")
+    )
+    def regra_r07_engenharia_dados(self):
+        """Identifica interesse em Engenharia de Dados."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Engenharia de Dados",
+                regra="R07",
+                justificativa=(
+                    "Interesse em construir processos de coleta, "
+                    "transformação e disponibilização de dados, "
+                    "combinado à preferência por organizar "
+                    "e processar grandes volumes de informações."
+                )
+            )
+        )
+    
+    # R08 — Engenharia de Dados: pipelines e bancos de dados
+    @Rule(
+        RespostaUsuario(pergunta="Q06", alternativa="B"),
+        RespostaUsuario(pergunta="Q03", alternativa="D")
+    )
+    def regra_r08_engenharia_dados(self):
+        """Identifica afinidade técnica com Engenharia de Dados."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Engenharia de Dados",
+                regra="R08",
+                justificativa=(
+                    "Interesse em construir pipelines de coleta e "
+                    "transformação de dados, combinado à "
+                    "familiaridade com SQL e bancos de dados."
+                )
+            )
+        )
+
+
 
 
 
