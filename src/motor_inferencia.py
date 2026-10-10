@@ -468,7 +468,76 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R23 — Diferenciação: DevOps & SRE x Computação em Nuvem
+    @Rule(
+        RespostaUsuario(pergunta="Q07", alternativa="A"),
+        RespostaUsuario(pergunta="Q03", alternativa="G"),
+        RespostaUsuario(pergunta="Q02", alternativa="E")
+    )
+    def regra_r23_diferenciacao_devops(self):
+        """Diferencia DevOps & SRE de Computação em Nuvem."""
 
+        self.declare(
+            EvidenciaCarreira(
+                carreira="DevOps & SRE",
+                regra="R23",
+                justificativa=(
+                    "Apesar da familiaridade com plataformas de nuvem, "
+                    "o interesse em automatizar implantações, monitorar "
+                    "aplicações e garantir sua confiabilidade, "
+                    "combinado à preferência por servidores e "
+                    "automação, indica maior alinhamento com "
+                    "DevOps & SRE."
+                )
+            )
+        )
+    
+    # R24 — Diferenciação: Computação em Nuvem x DevOps & SRE
+    @Rule(
+        RespostaUsuario(pergunta="Q07", alternativa="B"),
+        RespostaUsuario(pergunta="Q03", alternativa="F"),
+        RespostaUsuario(pergunta="Q04", alternativa="D")
+    )
+    def regra_r24_diferenciacao_cloud(self):
+        """Diferencia Computação em Nuvem de DevOps & SRE."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Computação em Nuvem",
+                regra="R24",
+                justificativa=(
+                    "Apesar da familiaridade com Docker e ferramentas "
+                    "de CI/CD, o interesse em projetar arquiteturas "
+                    "em nuvem e trabalhar com infraestrutura "
+                    "estável e escalável indica maior alinhamento "
+                    "com Computação em Nuvem."
+                )
+            )
+        )
+    
+    # R25 — Diferenciação: Engenharia de Qualidade x Cibersegurança
+    @Rule(
+        RespostaUsuario(pergunta="Q09", alternativa="B"),
+        RespostaUsuario(pergunta="Q02", alternativa="F"),
+        RespostaUsuario(pergunta="Q03", alternativa="I")
+    )
+    def regra_r25_diferenciacao_qa(self):
+        """Diferencia Engenharia de Qualidade de Cibersegurança."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Engenharia de Qualidade (QA)",
+                regra="R25",
+                justificativa=(
+                    "Apesar do interesse em investigar falhas e riscos, "
+                    "a preferência por automatizar testes e a "
+                    "familiaridade com ferramentas de qualidade "
+                    "indicam maior alinhamento com Engenharia "
+                    "de Qualidade e Testes."
+                )
+            )
+        )
 
 
     def analisar(self, respostas: dict[str, str]):
