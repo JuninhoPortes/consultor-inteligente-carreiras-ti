@@ -340,6 +340,47 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R17 — QA: automação de testes e qualidade de software
+    @Rule(
+        RespostaUsuario(pergunta="Q09", alternativa="B"),
+        RespostaUsuario(pergunta="Q03", alternativa="I")
+    )
+    def regra_r17_qa(self):
+        """Identifica afinidade técnica com Engenharia de Qualidade."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Engenharia de Qualidade (QA)",
+                regra="R17",
+                justificativa=(
+                    "Interesse em identificar defeitos e automatizar "
+                    "testes para garantir a qualidade do software, "
+                    "combinado à familiaridade com ferramentas "
+                    "de testes e automação."
+                )
+            )
+        )
+    
+    # R18 — QA: qualidade e confiabilidade de software
+    @Rule(
+        RespostaUsuario(pergunta="Q09", alternativa="B"),
+        RespostaUsuario(pergunta="Q04", alternativa="E")
+    )
+    def regra_r18_qa(self):
+        """Identifica interesse em qualidade e testes de software."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Engenharia de Qualidade (QA)",
+                regra="R18",
+                justificativa=(
+                    "Interesse em identificar defeitos e automatizar "
+                    "testes, combinado à preferência por garantir "
+                    "a segurança e a qualidade dos sistemas."
+                )
+            )
+        )
 
 
 
