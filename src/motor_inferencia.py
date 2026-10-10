@@ -259,6 +259,46 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R13 — Cloud: arquitetura e plataformas em nuvem
+    @Rule(
+        RespostaUsuario(pergunta="Q07", alternativa="B"),
+        RespostaUsuario(pergunta="Q03", alternativa="G")
+    )
+    def regra_r13_cloud(self):
+        """Identifica afinidade técnica com Computação em Nuvem."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Computação em Nuvem",
+                regra="R13",
+                justificativa=(
+                    "Interesse em projetar arquiteturas e ambientes "
+                    "em nuvem, combinado à familiaridade com "
+                    "plataformas AWS, Azure ou Google Cloud."
+                )
+            )
+        )
+    
+    # R14 — Cloud: arquitetura e infraestrutura escalável
+    @Rule(
+        RespostaUsuario(pergunta="Q07", alternativa="B"),
+        RespostaUsuario(pergunta="Q05", alternativa="D")
+    )
+    def regra_r14_cloud(self):
+        """Identifica interesse em arquitetura e infraestrutura em nuvem."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Computação em Nuvem",
+                regra="R14",
+                justificativa=(
+                    "Interesse em projetar ambientes e arquiteturas "
+                    "em nuvem, combinado à preferência por trabalhar "
+                    "com servidores, redes e infraestrutura escalável."
+                )
+            )
+        )
 
 
 
