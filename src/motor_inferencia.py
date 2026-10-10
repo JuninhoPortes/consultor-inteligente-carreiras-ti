@@ -176,6 +176,47 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R09 — Cibersegurança: investigação e proteção de sistemas
+    @Rule(
+        RespostaUsuario(pergunta="Q09", alternativa="A"),
+        RespostaUsuario(pergunta="Q02", alternativa="F")
+    )
+    def regra_r09_ciberseguranca(self):
+        """Identifica interesse em Cibersegurança."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Cibersegurança",
+                regra="R09",
+                justificativa=(
+                    "Interesse em investigar vulnerabilidades e "
+                    "proteger sistemas contra ataques, combinado "
+                    "à preferência por identificar falhas, "
+                    "vulnerabilidades e riscos."
+                )
+            )
+        )
+    
+    # R10 — Cibersegurança: segurança de redes e sistemas
+    @Rule(
+        RespostaUsuario(pergunta="Q09", alternativa="A"),
+        RespostaUsuario(pergunta="Q03", alternativa="E")
+    )
+    def regra_r10_ciberseguranca(self):
+        """Identifica afinidade técnica com Cibersegurança."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Cibersegurança",
+                regra="R10",
+                justificativa=(
+                    "Interesse em investigar vulnerabilidades e "
+                    "proteger sistemas contra ataques, combinado "
+                    "à familiaridade com Linux e redes."
+                )
+            )
+        )
 
 
 
