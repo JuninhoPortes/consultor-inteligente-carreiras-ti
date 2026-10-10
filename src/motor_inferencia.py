@@ -8,6 +8,7 @@ preparar_experta()
 from experta import KnowledgeEngine, Rule, OR
 from src.fatos import RespostaUsuario, EvidenciaCarreira
 from src.pontuacao import calcular_pontuacoes
+from src.recomendacao import selecionar_carreira
 
 class MotorInferencia(KnowledgeEngine):
     """Gerencia os fatos e executa as regras de inferência."""
@@ -580,4 +581,48 @@ class MotorInferencia(KnowledgeEngine):
             for carreira, pontos in pontuacoes.items()
             if carreira in carreiras_elegiveis
         }
+
+    
+    def gerar_resultado(self, respostas: dict[str, str]) -> dict:
+        """Gera a recomendação profissional com justificativas."""
+
+        # Executa as regras e obtém as pontuações elegíveis.
+        pontuacoes = self.analisar(respostas)
+
+        # Seleciona a carreira considerando os desempates.
+        carreira = selecionar_carreira(pontuacoes, respostas)
+
+        # Verifica se foi possível definir uma carreira.
+        if carreira is None:
+            return {
+                "carreira": None,
+                "pontuacao": None,
+                "justificativas": [],
+                "mensagem": (
+                    "Informações insuficientes ou empate não resolvido. "
+                    "São necessárias respostas adicionais."
+                )
+            }
+
+        # Recupera as justificativas das regras disparadas.
+        justificativas = [
+            {
+                "regra": fato["regra"],
+                "motivo": fato["justificativa"]
+            }
+            for fato in self.facts.values()
+            if isinstance(fato, EvidenciaCarreira)
+            and fato["carreira"] == carreira
+        ]
+
+        # Organiza as justificativas pelo identificador da regra.
+        justificativas.sort(key=lambda item: item["regra"])
+
+        return {
+            "carreira": carreira,
+            "pontuacao": pontuacoes[carreira],
+            "justificativas": justificativas,
+            "mensagem": "Recomendação realizada com sucesso."
+        }
+
 
