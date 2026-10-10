@@ -7,7 +7,7 @@ preparar_experta()
 
 from experta import KnowledgeEngine, Rule, OR
 from src.fatos import RespostaUsuario, EvidenciaCarreira
-
+from src.pontuacao import calcular_pontuacoes
 
 class MotorInferencia(KnowledgeEngine):
     """Gerencia os fatos e executa as regras de inferência."""
@@ -540,11 +540,13 @@ class MotorInferencia(KnowledgeEngine):
         )
 
 
-    def analisar(self, respostas: dict[str, str]):
-        """Recebe as respostas e executa o motor de inferência."""
+    
+    def analisar(self, respostas: dict[str, str]) -> dict[str, int]:
+        """Executa as regras e retorna as pontuações elegíveis."""
 
         self.reset()
 
+        # Registra as respostas do usuário.
         for pergunta, alternativa in respostas.items():
             self.declare(
                 RespostaUsuario(
@@ -553,4 +555,29 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
 
+        # Executa as regras de inferência.
         self.run()
+
+        # Calcula as pontuações das carreiras.
+        pontuacoes = calcular_pontuacoes(respostas)
+
+        # Identifica as regras que permitem uma recomendação.
+        regras_identificacao = {
+            f"R{i:02d}" for i in range(1, 21)
+        }
+
+        # Identifica as carreiras com regras disparadas.
+        carreiras_elegiveis = {
+            fato["carreira"]
+            for fato in self.facts.values()
+            if isinstance(fato, EvidenciaCarreira)
+            and fato["regra"] in regras_identificacao
+        }
+
+        # Retorna somente as pontuações das carreiras elegíveis.
+        return {
+            carreira: pontos
+            for carreira, pontos in pontuacoes.items()
+            if carreira in carreiras_elegiveis
+        }
+
