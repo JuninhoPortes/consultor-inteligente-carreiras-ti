@@ -299,6 +299,47 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R15 — Mobile: aplicativos e tecnologias móveis
+    @Rule(
+        RespostaUsuario(pergunta="Q08", alternativa="C"),
+        RespostaUsuario(pergunta="Q03", alternativa="H")
+    )
+    def regra_r15_mobile(self):
+        """Identifica afinidade técnica com Desenvolvimento Mobile."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Desenvolvimento Mobile",
+                regra="R15",
+                justificativa=(
+                    "Interesse em desenvolver aplicativos para "
+                    "smartphones e tablets, combinado à familiaridade "
+                    "com Flutter, React Native ou tecnologias "
+                    "de desenvolvimento mobile."
+                )
+            )
+        )
+    
+    # R16 — Mobile: desenvolvimento e aplicações móveis
+    @Rule(
+        RespostaUsuario(pergunta="Q08", alternativa="C"),
+        RespostaUsuario(pergunta="Q05", alternativa="B")
+    )
+    def regra_r16_mobile(self):
+        """Identifica interesse em desenvolver aplicações móveis."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Desenvolvimento Mobile",
+                regra="R16",
+                justificativa=(
+                    "Interesse em desenvolver aplicativos para "
+                    "smartphones e tablets, combinado à preferência "
+                    "por trabalhar com interfaces e aplicações móveis."
+                )
+            )
+        )
 
 
 
