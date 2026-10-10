@@ -56,6 +56,47 @@ class MotorInferencia(KnowledgeEngine):
             )
         )
 
+    # R03 — Identificação de perfil Front-end & UI/UX
+    @Rule(
+        RespostaUsuario(pergunta="Q08", alternativa="B"),
+        RespostaUsuario(pergunta="Q02", alternativa="B")
+    )
+    def regra_r03_frontend(self):
+        """Identifica interesse em Front-end e UI/UX."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Front-end & UI/UX",
+                regra="R03",
+                justificativa=(
+                    "Interesse em desenvolver interfaces web, "
+                    "combinado à preferência por criar experiências "
+                    "visuais e interativas."
+                )
+            )
+        )
+
+    # R04 — Front-end: desenvolvimento e ferramentas
+    @Rule(
+        RespostaUsuario(pergunta="Q08", alternativa="B"),
+        RespostaUsuario(pergunta="Q03", alternativa="B")
+    )
+    def regra_r04_frontend(self):
+        """Identifica afinidade técnica com Front-end e UI/UX."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Front-end & UI/UX",
+                regra="R04",
+                justificativa=(
+                    "Interesse em desenvolver interfaces web, "
+                    "combinado à familiaridade com JavaScript, "
+                    "HTML e CSS."
+                )
+            )
+        )
+
+
 
     def analisar(self, respostas: dict[str, str]):
         """Recebe as respostas e executa o motor de inferência."""
