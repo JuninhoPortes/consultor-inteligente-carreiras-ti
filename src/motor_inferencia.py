@@ -423,8 +423,51 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+        
+    # R21 — Diferenciação: Ciência de Dados x Engenharia de Dados
+    @Rule(
+        RespostaUsuario(pergunta="Q06", alternativa="A"),
+        RespostaUsuario(pergunta="Q01", alternativa="C"),
+        RespostaUsuario(pergunta="Q03", alternativa="D")
+    )
+    def regra_r21_diferenciacao_ciencia_dados(self):
+        """Diferencia Ciência de Dados de Engenharia de Dados."""
 
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Ciência de Dados e ML",
+                regra="R21",
+                justificativa=(
+                    "Apesar da familiaridade com SQL e bancos de dados, "
+                    "o interesse em modelos preditivos e a alta "
+                    "afinidade com matemática e estatística indicam "
+                    "maior alinhamento com Ciência de Dados."
+                )
+            )
+        )
+    
+    # R22 — Diferenciação: Engenharia de Dados x Ciência de Dados
+    @Rule(
+        RespostaUsuario(pergunta="Q06", alternativa="B"),
+        RespostaUsuario(pergunta="Q02", alternativa="D"),
+        RespostaUsuario(pergunta="Q03", alternativa="A")
+    )
+    def regra_r22_diferenciacao_engenharia_dados(self):
+        """Diferencia Engenharia de Dados de Ciência de Dados."""
 
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Engenharia de Dados",
+                regra="R22",
+                justificativa=(
+                    "Apesar da familiaridade com Python, "
+                    "o interesse em construir pipelines de dados "
+                    "e a preferência por organizar e transformar "
+                    "grandes volumes de informações indicam maior "
+                    "alinhamento com Engenharia de Dados."
+                )
+            )
+        )
 
 
 
