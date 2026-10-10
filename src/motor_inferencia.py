@@ -217,6 +217,48 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R11 — DevOps & SRE: automação e integração contínua
+    @Rule(
+        RespostaUsuario(pergunta="Q07", alternativa="A"),
+        RespostaUsuario(pergunta="Q03", alternativa="F")
+    )
+    def regra_r11_devops(self):
+        """Identifica afinidade técnica com DevOps e SRE."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="DevOps & SRE",
+                regra="R11",
+                justificativa=(
+                    "Interesse em automatizar implantações, "
+                    "monitorar aplicações e melhorar sua "
+                    "confiabilidade, combinado à familiaridade "
+                    "com Docker e ferramentas de CI/CD."
+                )
+            )
+        )
+    
+    # R12 — DevOps & SRE: infraestrutura e automação
+    @Rule(
+        RespostaUsuario(pergunta="Q07", alternativa="A"),
+        RespostaUsuario(pergunta="Q02", alternativa="E")
+    )
+    def regra_r12_devops(self):
+        """Identifica interesse em infraestrutura e automação."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="DevOps & SRE",
+                regra="R12",
+                justificativa=(
+                    "Interesse em automatizar implantações e "
+                    "garantir a confiabilidade das aplicações, "
+                    "combinado à preferência por configurar "
+                    "servidores e automatizar processos."
+                )
+            )
+        )
 
 
 
