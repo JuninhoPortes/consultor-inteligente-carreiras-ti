@@ -381,6 +381,48 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R19 — Gestão de Produtos: planejamento e prioridades
+    @Rule(
+        RespostaUsuario(pergunta="Q10", alternativa="A"),
+        RespostaUsuario(pergunta="Q02", alternativa="G")
+    )
+    def regra_r19_gestao_produtos(self):
+        """Identifica interesse em Gestão de Produtos."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Gestão de Produtos",
+                regra="R19",
+                justificativa=(
+                    "Interesse em definir prioridades e compreender "
+                    "as necessidades dos usuários, combinado à "
+                    "preferência por planejar funcionalidades "
+                    "e orientar decisões de produto."
+                )
+            )
+        )
+    
+    # R20 — Gestão de Produtos: estratégia e resultados de negócio
+    @Rule(
+        RespostaUsuario(pergunta="Q10", alternativa="A"),
+        RespostaUsuario(pergunta="Q04", alternativa="F")
+    )
+    def regra_r20_gestao_produtos(self):
+        """Identifica afinidade com estratégia e gestão de produtos."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Gestão de Produtos",
+                regra="R20",
+                justificativa=(
+                    "Interesse em definir prioridades e orientar "
+                    "o desenvolvimento de produtos, combinado "
+                    "à preferência por contribuir para decisões "
+                    "estratégicas e resultados de negócio."
+                )
+            )
+        )
 
 
 
