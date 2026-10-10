@@ -95,6 +95,46 @@ class MotorInferencia(KnowledgeEngine):
                 )
             )
         )
+    
+    # R05 — Ciência de Dados: modelos preditivos e matemática
+    @Rule(
+        RespostaUsuario(pergunta="Q06", alternativa="A"),
+        RespostaUsuario(pergunta="Q01", alternativa="C")
+    )
+    def regra_r05_ciencia_dados(self):
+        """Identifica afinidade com Ciência de Dados e ML."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Ciência de Dados e ML",
+                regra="R05",
+                justificativa=(
+                    "Interesse em analisar dados e construir modelos "
+                    "preditivos, combinado à alta afinidade com "
+                    "matemática e estatística."
+                )
+            )
+        )
+    
+    # R06 — Ciência de Dados: análise e identificação de padrões
+    @Rule(
+        RespostaUsuario(pergunta="Q06", alternativa="A"),
+        RespostaUsuario(pergunta="Q02", alternativa="C")
+    )
+    def regra_r06_ciencia_dados(self):
+        """Identifica interesse em análise de dados e ML."""
+
+        self.declare(
+            EvidenciaCarreira(
+                carreira="Ciência de Dados e ML",
+                regra="R06",
+                justificativa=(
+                    "Interesse em desenvolver modelos preditivos, "
+                    "combinado à preferência por analisar dados "
+                    "e identificar padrões."
+                )
+            )
+        )
 
 
 
